@@ -1,0 +1,15 @@
+{
+  "provenance": "measured from brand/ on 2026-10-08; png values are exact pixel reads, jpeg values are 4-level quantised canvas reads",
+  "colours": {
+    "black": { "srgb": [0, 0, 0], "oklchL": 0, "chroma": 0, "sources": ["brand/LOGO DUSKINATOR PNG.png", "brand/LOGO DUSKINATOR JPG.jpg.jpeg"], "share": "92.4% of pixels (png), 92.6% (jpeg)" },
+    "white": { "srgb": [254, 254, 254], "oklchL": 0.997025, "chroma": 0, "sources": ["brand/LOGO DUSKINATOR PNG.png", "brand/LOGO DUSKINATOR PNG...png"], "share": "1.9% single most common mark pixel; mark body 7.6% in total" }
+  },
+  "files": {
+    "brand/LOGO DUSKINATOR PNG.png": { "ihdr": "2000x2000, 8-bit, colour type 6 (RGBA)", "alpha": "all 4,000,000 pixels at 255, so no real transparency", "dominant": "0,0,0,255 x92.4% then 254,254,254,255 x1.9%", "channel spread": "max 8, lossless noise around the mark edge" },
+    "brand/LOGO DUSKINATOR PNG...png": { "ihdr": "2000x2000, 8-bit, colour type 6 (RGBA)", "alpha": "92.4% at 0, 6.9% at 224-255, remainder anti-aliasing", "dominant": "0,0,0,0 x92.4% then 254,254,254,255 x1.9%", "channel spread": "opaque pixels near-gray; transparent edge pixels carry unpremultiplied residue" },
+    "brand/LOGO DUSKINATOR JPG.jpg.jpeg": { "format": "baseline jpeg 2000x2000", "dominant": "0,0,0 x92.6% then 252,252,252 x6.0%", "channel spread": "max 7 (compression)" }
+  },
+  "excludedOnPurpose": {
+    "reference/ slide background": "11,13,12 sits in reference/, not brand/, and carries a non-zero channel spread, so it is not a palette source"
+  }
+}

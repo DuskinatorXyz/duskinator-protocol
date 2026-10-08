@@ -1,0 +1,55 @@
+:root {
+  color-scheme: dark;
+
+  /* the only colour literals: black and white as measured in brand/ (see palette.json) */
+  --black: oklch(0 0 0);
+  --white: oklch(0.997025 0 0);
+  --clear: oklch(0 0 0 / 0);
+
+  /* opaque tiers: white blended into black */
+  --ink-0: var(--black);
+  --ink-1: color-mix(in oklch, var(--white) 6%, var(--black));
+  --ink-2: color-mix(in oklch, var(--white) 10%, var(--black));
+  --ink-3: color-mix(in oklch, var(--white) 16%, var(--black));
+  --ink-4: color-mix(in oklch, var(--white) 24%, var(--black));
+
+  /* text tiers */
+  --fg-0: var(--white);
+  --fg-1: color-mix(in oklch, var(--white) 96%, var(--black));
+  --fg-2: color-mix(in oklch, var(--white) 82%, var(--black));
+  --fg-3: color-mix(in oklch, var(--white) 66%, var(--black));
+  --fg-4: color-mix(in oklch, var(--white) 56%, var(--black));
+  --fg-on-light: var(--black);
+
+  --btn: color-mix(in oklch, var(--white) 96%, var(--black));
+  --btn-hover: var(--white);
+
+  /* translucent white */
+  --veil-1: color-mix(in oklch, var(--white) 3.5%, var(--clear));
+  --veil-2: color-mix(in oklch, var(--white) 6%, var(--clear));
+  --veil-3: color-mix(in oklch, var(--white) 10%, var(--clear));
+  --veil-4: color-mix(in oklch, var(--white) 16%, var(--clear));
+  --line-1: color-mix(in oklch, var(--white) 8%, var(--clear));
+  --line-2: color-mix(in oklch, var(--white) 14%, var(--clear));
+  --line-3: color-mix(in oklch, var(--white) 30%, var(--clear));
+  --grid-line: color-mix(in oklch, var(--white) 2.5%, var(--clear));
+
+  --halo-1: color-mix(in oklch, var(--white) 16%, var(--clear));
+  --halo-2: color-mix(in oklch, var(--white) 12%, var(--clear));
+  --halo-3: color-mix(in oklch, var(--white) 7%, var(--clear));
+  --halo-4: color-mix(in oklch, var(--white) 4%, var(--clear));
+  --halo-5: color-mix(in oklch, var(--white) 2.5%, var(--clear));
+
+  /* translucent black */
+  --shade-1: color-mix(in oklch, var(--black) 25%, var(--clear));
+  --shade-2: color-mix(in oklch, var(--black) 40%, var(--clear));
+  --shade-3: color-mix(in oklch, var(--black) 70%, var(--clear));
+  --shade-4: color-mix(in oklch, var(--black) 80%, var(--clear));
+  --mask-solid: var(--black);
+
+  --glint-hi: color-mix(in oklch, var(--white) 28%, var(--clear));
+  --glint-lo: color-mix(in oklch, var(--white) 5%, var(--clear));
+  --btn-shadow: color-mix(in oklch, var(--white) 25%, var(--clear));
+  --btn-shadow-hover: color-mix(in oklch, var(--white) 35%, var(--clear));
+  --focus: color-mix(in oklch, var(--white) 90%, var(--clear));
+}

@@ -1,0 +1,77 @@
+{
+  "version": 1,
+  "records": {
+    "name": {
+      "state": "stated",
+      "value": "Duskinator",
+      "asOf": "2026-10-08",
+      "source": "client brief 2026-10-08"
+    },
+    "domain": {
+      "state": "stated",
+      "value": "duskinator.xyz",
+      "asOf": "2026-10-08",
+      "source": "client brief 2026-10-08"
+    },
+    "chain": {
+      "state": "stated",
+      "value": "Solana",
+      "rpc": "https://solana-rpc.publicnode.com",
+      "asOf": "2026-10-08",
+      "source": "client instruction 2026-10-08, replaces the earlier rpc statement (that endpoint answers browser calls with 403)",
+      "chainId": "0x65"
+    },
+    "ca": {
+      "state": "absent",
+      "value": null,
+      "asOf": "2026-10-08",
+      "source": "no contract address stated in client brief 2026-10-08"
+    },
+    "x": {
+      "state": "absent",
+      "url": null,
+      "asOf": "2026-10-08",
+      "source": "no X account stated in client brief 2026-10-08"
+    },
+    "github": {
+      "state": "absent",
+      "url": null,
+      "asOf": "2026-10-08",
+      "source": "no GitHub organisation stated in client brief 2026-10-08"
+    },
+    "quoteApi": {
+      "state": "stated",
+      "value": "https://lite-api.jup.ag/swap/v1/quote",
+      "asOf": "2026-10-08",
+      "source": "public endpoint, probed 2026-10-08"
+    },
+    "tokenApi": {
+      "state": "stated",
+      "value": "https://lite-api.jup.ag/tokens/v2",
+      "asOf": "2026-10-08",
+      "source": "public endpoint, probed 2026-10-08"
+    },
+    "mintSol": {
+      "state": "stated",
+      "value": "So11111111111111111111111111111111111111112",
+      "decimals": 9,
+      "symbol": "SOL",
+      "asOf": "2026-10-08",
+      "source": "wrapped SOL mint as listed by the token index, 2026-10-08"
+    },
+    "mintUsdc": {
+      "state": "stated",
+      "value": "EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v",
+      "decimals": 6,
+      "symbol": "USDC",
+      "asOf": "2026-10-08",
+      "source": "USDC mint as listed by the token index, 2026-10-08"
+    },
+    "coingeckoApi": {
+      "state": "stated",
+      "value": "https://api.coingecko.com/api/v3",
+      "asOf": "2026-10-08",
+      "source": "public endpoint, probed 2026-10-08"
+    }
+  }
+}

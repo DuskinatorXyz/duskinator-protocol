@@ -1,0 +1,316 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Duskinator | A read-only price desk for Solana</title>
+<meta name="description" content="Read live Solana routes, inspect every hop and trace a signature. Duskinator is a read-only desk that never asks for a wallet.">
+<meta name="theme-color" content="{{THEME_COLOR}}">
+<link rel="canonical" href="https://duskinator.xyz/">
+<link rel="icon" type="image/svg+xml" sizes="32x32" href="/favicon.svg">
+<link rel="manifest" href="/manifest.webmanifest">
+<meta property="og:title" content="Duskinator | A read-only price desk for Solana">
+<meta property="og:description" content="Live Solana routes, hop by hop. No wallet link, no sign-up.">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/app.css">
+<script>document.documentElement.classList.add('js');</script>
+<script type="application/json" id="register">{{REGISTER_JSON}}</script>
+<script type="module" src="/assets/main.js"></script>
+</head>
+<body>
+<div class="ambient">
+
+  <header class="top">
+    <div class="wrap">
+      <div class="top-row">
+        <a class="wordmark display" href="#/" aria-label="Duskinator, home">{{MARK}}<span>Duskinator</span></a>
+        <nav class="nav" aria-label="Primary">
+          <a href="#/" data-nav="home">Home</a>
+          <a href="#/desk" data-nav="desk">Desk</a>
+          <a href="#/trace" data-nav="trace">Trace</a>
+          <a href="#/guide" data-nav="guide">Guide</a>
+        </nav>
+        <div class="socials" data-socials>{{SOCIALS}}</div>
+      </div>
+      <nav class="subnav" aria-label="Primary, compact">
+        <a href="#/" data-nav="home">Home</a>
+        <a href="#/desk" data-nav="desk">Desk</a>
+        <a href="#/trace" data-nav="trace">Trace</a>
+        <a href="#/guide" data-nav="guide">Guide</a>
+      </nav>
+    </div>
+  </header>
+
+  <div class="wrap ca-band" data-ca-slot>
+    <div class="ca-label"><span>Token contract</span><span class="sr-only" aria-live="polite" data-ca-live></span></div>
+    {{CA_SLOT}}
+  </div>
+
+  <main>
+
+    <!-- HOME -->
+    <div data-view="home" class="is-on">
+      <div class="wrap">
+        <section class="hero center">
+          <div class="hero-glow" aria-hidden="true"></div>
+          <div class="pill glass"><span class="live-dot" aria-hidden="true"></span><span>Beta &middot; mainnet only &middot; feeds refresh on their own</span></div>
+          <h1 class="display h-hero" style="margin-top:1.75rem" aria-label="Read the market after sundown."><span aria-hidden="true">Read the market<br><span class="grad">after <span class="rot-wrap"><span class="rot-sizer">midnight.</span><span class="rot" data-rot>sundown.</span></span></span></span></h1>
+          <p class="lede">A read-only desk for Solana token prices. Weigh a path, study every hop, then take the figures to wherever you hold your tokens.</p>
+          <div class="cta-row">
+            <a class="btn" href="#/desk">Open the desk <svg class="chev" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a>
+            <a class="btn btn-ghost" href="#/trace">Trace a signature</a>
+          </div>
+        </section>
+
+        <section class="fan" aria-label="Meme token ticker, three rows" data-fan>
+          <div class="fan-row" data-dir="left"><div class="fan-track is-loading" data-fan-track="0"><span class="fan-chip">Syncing the tape</span><span class="fan-chip">Syncing the tape</span><span class="fan-chip">Syncing the tape</span><span class="fan-chip">Syncing the tape</span></div></div>
+          <div class="fan-row" data-dir="right"><div class="fan-track is-loading" data-fan-track="1"><span class="fan-chip">Syncing the tape</span><span class="fan-chip">Syncing the tape</span><span class="fan-chip">Syncing the tape</span><span class="fan-chip">Syncing the tape</span></div></div>
+          <div class="fan-row" data-dir="left"><div class="fan-track is-loading" data-fan-track="2"><span class="fan-chip">Syncing the tape</span><span class="fan-chip">Syncing the tape</span><span class="fan-chip">Syncing the tape</span><span class="fan-chip">Syncing the tape</span></div></div>
+        </section>
+
+        <section class="sec-tight" aria-labelledby="pulse-h">
+          <div class="eyebrow" id="pulse-h">Chain pulse <span class="faint mono">&middot; {{CHAIN_LABEL}}</span></div>
+          <div class="grid g4" style="margin-top:1rem" data-pulse>
+            <div class="tile glass"><div class="k">Slot</div><div class="v mono is-loading" data-pulse-slot>Syncing</div><div class="s" data-pulse-slot-sub>awaiting first reply</div></div>
+            <div class="tile glass"><div class="k">Block height</div><div class="v mono is-loading" data-pulse-height>Syncing</div><div class="s">confirmed tip</div></div>
+            <div class="tile glass"><div class="k">Transactions per second</div><div class="v mono is-loading" data-pulse-tps>Syncing</div><div class="s" data-pulse-tps-sub>last sample window</div></div>
+            <div class="tile glass"><div class="k" data-pulse-epoch-k>Epoch</div><div class="v mono is-loading" data-pulse-epoch>Syncing</div><div class="meter" aria-hidden="true"><i data-pulse-bar></i></div></div>
+          </div>
+          <div class="feed-note"><span class="live-dot" aria-hidden="true"></span><span data-pulse-note>Reaching the open node&hellip;</span></div>
+        </section>
+
+        <section class="sec-tight" aria-labelledby="tape-h">
+          <div class="eyebrow" id="tape-h">Meme tape</div>
+          <h2 class="display h-sec">Solana meme tokens, live</h2>
+          <div class="glass tape-wrap" style="margin-top:1.25rem">
+            <table class="tape" data-tape>
+              <caption class="sr-only">Solana meme tokens by market value: price, 24 hour change and seven day line</caption>
+              <thead><tr><th scope="col">Token</th><th scope="col" class="num">Price</th><th scope="col" class="num">24h</th><th scope="col" class="trend">7d</th></tr></thead>
+              <tbody data-tape-body></tbody>
+            </table>
+          </div>
+          <div class="feed-note"><span class="live-dot" aria-hidden="true"></span><span data-tape-note>Reaching the market data feed&hellip;</span></div>
+        </section>
+
+        <section class="sec-tight" aria-labelledby="check-h">
+          <div class="glass panel">
+            <div class="eyebrow" id="check-h">Before you paste</div>
+            <h2 class="display h-sec">Check an address</h2>
+            <p class="dim" style="margin-top:0.6rem">Drop in anything that resembles a Solana address. It gets weighed against the project's named contract, as soon as one exists.</p>
+            <form class="field" style="margin-top:1.25rem" data-check-form autocomplete="off">
+              <input type="text" name="addr" placeholder="Paste an address" aria-label="Address to check" spellcheck="false" autocapitalize="off" data-check-input>
+              <button class="btn" type="submit">Check</button>
+            </form>
+            <div class="verdict" data-verdict="empty" data-check-out aria-live="polite">Waiting for input.</div>
+          </div>
+        </section>
+
+        <section class="steps" data-steps aria-labelledby="steps-h">
+          <div class="steps-pin">
+            <div class="eyebrow" id="steps-h">Three moves</div>
+            <div class="steps-body">
+              <div class="steps-tabs" role="tablist" aria-label="Walkthrough">
+                <button type="button" role="tab" class="steps-tab" data-step="0" aria-selected="true" aria-controls="panel-0" id="tab-0"><span class="ring"><svg viewBox="0 0 36 36" aria-hidden="true"><circle class="ring-bg" cx="18" cy="18" r="16"/><circle class="ring-fg" cx="18" cy="18" r="16" pathLength="100"/></svg><b>1</b></span><span class="tab-t">Pair</span></button>
+                <button type="button" role="tab" class="steps-tab" data-step="1" aria-selected="false" aria-controls="panel-1" id="tab-1" tabindex="-1"><span class="ring"><svg viewBox="0 0 36 36" aria-hidden="true"><circle class="ring-bg" cx="18" cy="18" r="16"/><circle class="ring-fg" cx="18" cy="18" r="16" pathLength="100"/></svg><b>2</b></span><span class="tab-t">Hops</span></button>
+                <button type="button" role="tab" class="steps-tab" data-step="2" aria-selected="false" aria-controls="panel-2" id="tab-2" tabindex="-1"><span class="ring"><svg viewBox="0 0 36 36" aria-hidden="true"><circle class="ring-bg" cx="18" cy="18" r="16"/><circle class="ring-fg" cx="18" cy="18" r="16" pathLength="100"/></svg><b>3</b></span><span class="tab-t">Move</span></button>
+              </div>
+              <div class="steps-panels">
+                <article class="steps-panel glass is-on" data-panel="0" role="tabpanel" id="panel-0" aria-labelledby="tab-0"><div class="big mono">01</div><h3 class="display">Choose a pair</h3><p>Name the token going in, then the token coming out. Whatever amount you type becomes the probe size.</p></article>
+                <article class="steps-panel glass" data-panel="1" role="tabpanel" id="panel-1" aria-labelledby="tab-1" aria-hidden="true"><div class="big mono">02</div><h3 class="display">Read the hops</h3><p>Learn which venues carry that order, how they divide it, and where the floor lands after slippage.</p></article>
+                <article class="steps-panel glass" data-panel="2" role="tabpanel" id="panel-2" aria-labelledby="tab-2" aria-hidden="true"><div class="big mono">03</div><h3 class="display">Act elsewhere</h3><p>Nothing is signed or sent from this page. Copy the summary and move on when you are ready.</p></article>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="sec-tight">
+          <div class="grid g3">
+            <div class="glass card"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7S2 12 2 12Z"/><circle cx="12" cy="12" r="3"/></svg><h3 class="display">Read-only</h3><p>Nothing here asks for any wallet connection; this page cannot shift funds.</p></div>
+            <div class="glass card"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18"/><path d="M12 3a14 14 0 0 1 0 18"/><path d="M12 3a14 14 0 0 0 0 18"/></svg><h3 class="display">Open sources</h3><p>Each figure traces to an open Solana endpoint that anyone may query directly.</p></div>
+            <div class="glass card"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 17h18"/><path d="M6 17a6 6 0 0 1 12 0"/><path d="M12 5v3"/><path d="m4.9 9.9 2.1 2.1"/><path d="m19.1 9.9-2.1 2.1"/></svg><h3 class="display">Mainnet only</h3><p>Only mainnet; no devnets, no mock order books. The numbers are what the chain quotes this second.</p></div>
+          </div>
+        </section>
+      </div>
+    </div>
+
+    <!-- DESK -->
+    <div data-view="desk">
+      <div class="wrap">
+        <section class="hero center" style="padding-bottom:1.5rem">
+          <h1 class="display h-page">Quote <span class="grad">desk.</span></h1>
+          <p class="lede" style="margin-top:0.9rem">A read of what the market would pay right now.</p>
+        </section>
+        <section class="wrap-sm" style="margin:0 auto">
+          <div class="desk-card" data-desk>
+            <div class="card-head">
+              <h2 class="display"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="5" cy="12" r="2"/><circle cx="19" cy="12" r="2"/><path d="M7 12h10"/></svg>Desk</h2>
+              <span class="status-chip" data-desk-live hidden><span class="live-dot" aria-hidden="true"></span>Live</span>
+            </div>
+            <div class="seg" role="group" aria-label="Routing mode">
+              <button type="button" data-mode="best" aria-pressed="true">Best route</button>
+              <button type="button" data-mode="direct" aria-pressed="false">Direct only</button>
+            </div>
+
+            <div class="leg">
+              <div class="leg-top"><span>You pay</span><span>Solana mainnet</span></div>
+              <div class="leg-main">
+                <button type="button" class="pick" data-pick="from" aria-haspopup="dialog"></button>
+                <input class="amount display" inputmode="decimal" placeholder="0" aria-label="Amount to pay" data-amount autocomplete="off">
+              </div>
+              <div class="leg-foot"><span data-from-name>Pick a token</span><span data-from-usd></span></div>
+            </div>
+
+            <div class="flip-wrap"><button type="button" class="flip" data-flip aria-label="Swap the two tokens"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m7 15 5 5 5-5"/><path d="m7 9 5-5 5 5"/></svg></button></div>
+
+            <div class="leg">
+              <div class="leg-top"><span>You get <span class="faint">(approx.)</span></span><span>Solana mainnet</span></div>
+              <div class="leg-main">
+                <button type="button" class="pick" data-pick="to" aria-haspopup="dialog"></button>
+                <div class="out display is-empty" data-out aria-live="polite">0</div>
+              </div>
+              <div class="leg-foot"><span data-rate>Pick a token</span><span data-to-usd></span></div>
+            </div>
+
+            <div data-quote-extra hidden>
+              <div class="stats">
+                <div class="stat"><div class="k">Price impact</div><div class="v mono" data-s-impact>Reading</div></div>
+                <div class="stat"><div class="k">Floor at 0.50% slip</div><div class="v mono" data-s-floor>Reading</div></div>
+                <div class="stat"><div class="k">Next read</div><div class="v mono" data-s-next>Reading</div></div>
+              </div>
+              <div class="routes" data-routes aria-label="Route legs"></div>
+            </div>
+
+            <div class="err" data-err hidden role="alert"></div>
+            <div class="cta-wrap"><button type="button" class="btn btn-block" data-cta disabled>Name an input token</button></div>
+            <p class="note">Read-only &middot; nothing is submitted from this page</p>
+          </div>
+        </section>
+      </div>
+
+      <dialog class="picker" data-picker aria-labelledby="picker-title">
+        <div class="dlg-head"><h2 class="display" id="picker-title" data-picker-title>Choose a token</h2><button type="button" class="icon-btn" data-picker-close aria-label="Close"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg></button></div>
+        <div class="dlg-search"><div class="field"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true" class="faint"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg><input type="text" placeholder="Name, ticker or mint" aria-label="Filter tokens" data-picker-search spellcheck="false"></div></div>
+        <div class="dlg-list" data-picker-list></div>
+      </dialog>
+    </div>
+
+    <!-- TRACE -->
+    <div data-view="trace">
+      <div class="wrap wrap-sm">
+        <section class="hero center" style="padding-bottom:1.5rem">
+          <h1 class="display h-page">Trace a <span class="grad">signature.</span></h1>
+          <p class="lede" style="margin-top:0.9rem">Watch a transfer go from first sighting to finality.</p>
+        </section>
+        <form class="field" data-trace-form autocomplete="off">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true" class="faint"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+          <input type="text" class="mono" placeholder="Paste a signature" aria-label="Transaction signature" spellcheck="false" data-trace-input>
+          <button class="btn" type="submit">Trace</button>
+        </form>
+        <div class="err" data-trace-err hidden role="alert"></div>
+        <div style="margin-top:1.5rem" data-trace-out></div>
+        <p class="note" data-trace-note>Status refreshes every eight seconds.</p>
+      </div>
+    </div>
+
+    <!-- GUIDE -->
+    <div data-view="guide">
+      <div class="wrap wrap-md">
+        <section class="hero center" style="padding-bottom:2rem">
+          <div class="eyebrow">Guide</div>
+          <h1 class="display h-doc" style="margin-top:0.75rem">You hold <span class="grad">the pen.</span></h1>
+          <p class="lede">Duskinator prices a path and shows its reasoning. Signing, sending and settling stay inside software you control.</p>
+        </section>
+
+        <section class="grid g3">
+          <div class="glass glass-hover card"><span class="dot-num">1</span><h3 class="display">Pick a pair</h3><p>Name what you hold, name what you are after, then key in some size.</p></div>
+          <div class="glass glass-hover card"><span class="dot-num">2</span><h3 class="display">Inspect the path</h3><p>Look over venues, split and floor price before deciding on anything.</p></div>
+          <div class="glass glass-hover card"><span class="dot-num">3</span><h3 class="display">Take it from here</h3><p>Bring the figures to whichever wallet or venue earns your trust. This page ends at the numbers.</p></div>
+        </section>
+
+        <section class="sec" id="sources" data-anchor="sources">
+          <div class="glass panel">
+            <div class="panel-head">
+              <span class="sq"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2 3 7l9 5 9-5-9-5Z"/><path d="m3 12 9 5 9-5"/><path d="m3 17 9 5 9-5"/></svg></span>
+              <div><div class="eyebrow">Under the hood</div><h2 class="display" style="font-size:1.5rem;font-weight:700">Three public endpoints</h2></div>
+            </div>
+            <p class="body">Every call travels straight from browser to open service. <b>No server of ours</b> sits along that path, and nothing typed here is kept anywhere.</p>
+            <div class="grid g3" style="margin-top:1.5rem">
+              <div class="sub"><div class="n mono">01</div><div class="t">Chain</div><div class="d">The open Solana node reports slot, epoch, throughput samples and signature status.</div></div>
+              <div class="sub"><div class="n mono">02</div><div class="t">Routes</div><div class="d">A public aggregator quote endpoint prices the pair and lists the hops it would use.</div></div>
+              <div class="sub"><div class="n mono">03</div><div class="t">Tokens</div><div class="d">An open token index supplies names, decimals plus reference prices serving the chooser.</div></div>
+            </div>
+          </div>
+        </section>
+
+        <section class="sec" data-anchor="modes">
+          <div class="eyebrow">Two modes, one boundary</div>
+          <h2 class="display h-sec">What the desk can do</h2>
+          <div class="grid g3" style="margin-top:1.5rem">
+            <div class="glass glass-hover card"><h3 class="display" style="margin-top:0">Best route</h3><p>Lets the aggregator split the trade across as many venues as pay the most.</p></div>
+            <div class="glass glass-hover card"><h3 class="display" style="margin-top:0">Direct only</h3><p>Limits the answer to single-hop paths, which is easier to audit by hand.</p></div>
+            <div class="glass card dim-card"><div class="faint" style="font-size:0.75rem;font-weight:600">Not built</div><h3 class="display" style="margin-top:0.4rem;color:var(--fg-3)">Wallet hand-off</h3><p class="faint">Signing here is ruled out; no date is promised either.</p></div>
+          </div>
+        </section>
+
+        <section class="sec" data-anchor="visibility">
+          <div class="eyebrow">Privacy, plainly</div>
+          <h2 class="display h-sec">Everything leaves a trail</h2>
+          <p class="dim" style="margin-top:0.75rem;line-height:1.7">A blockchain keeps a permanent record. Reading it through this page changes none of that.</p>
+          <div class="grid g3" style="margin-top:1.5rem">
+            <div class="sub"><div class="t">Always visible</div><div class="d">Any transaction you make later, plus whichever wallet made it.</div></div>
+            <div class="sub"><div class="t">Not collected</div><div class="d">Zero accounts, zero wallet links, zero analytics scripts.</div></div>
+            <div class="sub"><div class="t">Your end</div><div class="d">Open services and this site's host can see your network address whenever your browser calls them.</div></div>
+          </div>
+        </section>
+
+        <section class="sec" data-anchor="reads">
+          <div class="eyebrow">Coverage</div>
+          <h2 class="display h-sec">What it reads</h2>
+          <p class="dim" style="margin-top:0.5rem;font-size:0.9rem">A token showing up inside the chooser guarantees nothing about routes toward every other token. Every pair gets asked separately.</p>
+          <div class="chips"><span class="chip">Mainnet node</span><span class="chip">Quote endpoint</span><span class="chip">Token index</span><span class="chip">Signature status</span><span class="chip">Epoch clock</span><span class="chip">Throughput samples</span></div>
+        </section>
+
+        <section class="sec" data-anchor="faq">
+          <div class="eyebrow">Worth a minute</div>
+          <h2 class="display h-sec">Questions</h2>
+          <div class="stack" style="margin-top:1.5rem">
+            <details class="qa glass"><summary>Does it need my wallet?<span class="plus" aria-hidden="true">+</span></summary><p>No. There is no connect button. You read, then you leave.</p></details>
+            <details class="qa glass"><summary>Why show a floor figure?<span class="plus" aria-hidden="true">+</span></summary><p>Prices drift while a transfer waits in line. The floor deducts a half-percent allowance from the estimate.</p></details>
+            <details class="qa glass"><summary>Why would a pair return nothing?<span class="plus" aria-hidden="true">+</span></summary><p>A token can be listed yet have no link toward your target. Silence means nothing is routable right now at that size.</p></details>
+            <details class="qa glass"><summary>Where is the contract?<span class="plus" aria-hidden="true">+</span></summary><p>{{FAQ_CA}}</p></details>
+          </div>
+        </section>
+
+        <section class="sec center">
+          <h2 class="display h-sec" style="margin-top:0">Begin by naming two tokens.</h2>
+          <p class="dim" style="margin-top:0.5rem">Nothing is sent until you do it yourself.</p>
+          <a class="btn" style="margin-top:1.5rem" href="#/desk">Open the desk <svg class="chev" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a>
+        </section>
+      </div>
+    </div>
+
+  </main>
+
+  <footer class="foot">
+    <div class="wrap">
+      <div class="foot-in">
+        <div>
+          <a class="wordmark display" href="#/">{{MARK}}<span>Duskinator</span></a>
+          <p class="foot-blurb">A read-only price desk for Solana. No wallet link, no sign-up: it reads open data and shows its working.</p>
+        </div>
+        <div class="foot-cols">
+          <div><h3>Pages</h3><a href="#/desk">Desk</a><a href="#/trace">Trace</a><a href="#/guide">Guide</a></div>
+          <div><h3>Guide</h3><a href="#/guide/sources">Sources</a><a href="#/guide/visibility">Visibility</a><a href="#/guide/faq">Questions</a></div>
+        </div>
+      </div>
+      <div class="foot-meta"><span>Duskinator. Open by habit.</span><span>Check every address twice before you move funds.</span></div>
+    </div>
+  </footer>
+</div>
+<noscript><p style="padding:1rem;color:var(--fg-2)">The live feeds on this page need JavaScript.</p></noscript>
+</body>
+</html>

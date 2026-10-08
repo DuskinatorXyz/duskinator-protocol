@@ -1,0 +1,13 @@
+{
+  "name": "duskinator",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Read-only Solana price desk. Static output in dist/.",
+  "scripts": {
+    "build": "node scripts/build.mjs",
+    "gates": "node scripts/gates.mjs",
+    "serve": "node scripts/serve.mjs"
+  },
+  "engines": { "node": ">=20" }
+}
